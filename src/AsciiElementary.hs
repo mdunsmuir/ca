@@ -16,10 +16,17 @@
 -}
 
 import System.Environment
+import Elementary.Rule
 import Elementary.Display
 
 main = do
   args <- getArgs
-  if length args /= 4
-    then putStrLn "ascii-elem <width> <height> <initial live cell> <rule no.>"
-    else ascii (read $ args !! 0) (read $ args !! 1) (read $ args !! 2) (read $ args !! 3)
+  if length args < 3
+    then putStrLn "ascii-elem <rule no.> <width> <height> [initial live cell]"
+    else do
+      let rule = read $ args !! 0 :: Rule
+          width = read $ args !! 1 :: Int
+          height = read $ args !! 2 :: Int
+      if length args == 4
+        then ascii width height (read $ args !! 3) rule
+        else asciiForRandomInitialState width height rule

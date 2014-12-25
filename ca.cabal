@@ -57,7 +57,8 @@ executable ascii-elem
   -- other-extensions:    
   
   -- Other library packages from which modules are imported.
-  build-depends:       mtl >= 2.2 && < 2.3, base >=4.7 && <4.8, 
+  build-depends:       random >= 1.1 && < 1.2,
+                       mtl >= 2.2 && < 2.3, base >=4.7 && <4.8, 
                        word8 >=0.1 && <0.2, digits >=0.2 && <0.3
   
   -- Directories containing source files.
